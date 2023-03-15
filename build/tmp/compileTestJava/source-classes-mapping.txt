@@ -1,0 +1,6 @@
+AppTest/CarValueTest.java
+ AppTest.CarValueTest
+carVerification/enterCarRegPage.java
+ carVerification.enterCarRegPage
+Steps/carVerificationSteps.java
+ Steps.carVerificationSteps
