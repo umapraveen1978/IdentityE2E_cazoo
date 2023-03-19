@@ -9,23 +9,20 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class carVerificationSteps {
+public class carVerificationSteps extends enterCarRegPage{
     private enterCarRegPage Entercarregpage;
 
     @Step
-    public void getCarRegFromFile() {
-        Entercarregpage.getCarRegFromFile();
+    public void getCarRegFromFile() throws IOException {
+        Entercarregpage.extractRegistrationNumbers();
     }
     @Step
-    public void isOnEnterCarRegPage(){
-        Entercarregpage.open();
+    public void getMessageFromCazoo()throws IOException {
+        Entercarregpage.extractMessage();
     }
     @Step
-    public void entercarreg(){
-        Entercarregpage.carreg();
-    }
-    @Step
-    public void checkcar(){
-        Assert.assertTrue(Entercarregpage.valueCar().equals("Make/model: Jaguar XE 2.0d Portfolio Saloon 4dr Diesel Auto Euro 6 (s/s) (163 ps)"));
+    public void verifyMessage(){
+        Entercarregpage.verifyOutput();
     }
 }
+
