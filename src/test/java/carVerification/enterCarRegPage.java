@@ -66,7 +66,7 @@ public class enterCarRegPage extends PageObject {
     public void extractMessage()  {
 //        regNumbers = new ArrayList<String>();
         try {
-                for (String regNumber : regNumbers) {
+            for (String regNumber : regNumbers) {
                 driver.navigate().to("https://www.cazoo.co.uk/value-my-car/");
                 enterReg.sendKeys(regNumber);
                 enterReg.sendKeys(Keys.TAB);
@@ -111,5 +111,3 @@ public class enterCarRegPage extends PageObject {
         }
     }
 }
-
-
