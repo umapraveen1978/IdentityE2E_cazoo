@@ -20,9 +20,9 @@ public class carVerificationSteps extends enterCarRegPage{
     public void getMessageFromCazoo()throws IOException {
         Entercarregpage.extractMessage();
     }
-    @Step
-    public void verifyMessage(){
-        Entercarregpage.verifyOutput();
-    }
+//    @Step
+//    public void verifyMessage(){
+//        Entercarregpage.verifyOutput();
+//    }
 }
 

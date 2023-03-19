@@ -23,7 +23,7 @@ public class CarValueTest {
     public void carverificationTest() throws IOException {
         carVerificationSteps.getCarRegFromFile();
         carVerificationSteps.getMessageFromCazoo();
-        carVerificationSteps.getMessageFromCazoo();
+//        carVerificationSteps.getMessageFromCazoo();
 
     }
 }
