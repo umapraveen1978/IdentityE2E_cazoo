@@ -1,14 +1,12 @@
-package carVerification;
+package CarVerification;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.DefaultUrl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.FindBy;
@@ -22,8 +20,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 //@DefaultUrl("https://www.cazoo.co.uk/value-my-car/")
-public class enterCarRegPage extends PageObject {
-    static enterCarRegPage EnterCarRegPage;
+public class EnterCarRegPage extends PageObject {
+    static EnterCarRegPage EnterCarRegPage;
 
     private WebDriver driver;
     @Before
@@ -63,7 +61,7 @@ public class enterCarRegPage extends PageObject {
         return regNumbers;
     }
 
-    public void extractMessage()  {
+    public void extractMessage(List<String> strings)  {
 //        regNumbers = new ArrayList<String>();
         try {
             for (String regNumber : regNumbers) {
@@ -111,3 +109,4 @@ public class enterCarRegPage extends PageObject {
         }
     }
 }
+

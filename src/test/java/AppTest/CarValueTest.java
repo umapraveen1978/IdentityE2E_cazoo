@@ -5,7 +5,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import Steps.carVerificationSteps;
+import Steps.CarVerificationSteps;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.io.IOException;
 public class CarValueTest {
 
     @Steps
-    carVerificationSteps carVerificationSteps;
+    CarVerificationSteps carVerificationSteps;
 
 //    @Managed (driver = "edge")
 //    WebDriver driver;

@@ -1,16 +1,11 @@
 package Steps;
 
-import carVerification.enterCarRegPage;
-import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
-import org.junit.Assert;
-import java.io.*;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-public class carVerificationSteps extends enterCarRegPage{
-    private enterCarRegPage Entercarregpage;
+import java.io.*;
+
+public class CarVerificationSteps extends CarVerification.EnterCarRegPage {
+    private CarVerification.EnterCarRegPage Entercarregpage;
 
     @Step
     public void getCarRegFromFile() throws IOException {
@@ -18,7 +13,8 @@ public class carVerificationSteps extends enterCarRegPage{
     }
     @Step
     public void getMessageFromCazoo()throws IOException {
-        Entercarregpage.extractMessage();
+
+        Entercarregpage.extractMessage(Entercarregpage.extractRegistrationNumbers());
     }
 //    @Step
 //    public void verifyMessage(){
