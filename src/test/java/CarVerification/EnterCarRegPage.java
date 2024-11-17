@@ -1,8 +1,10 @@
 package CarVerification;
 
+import com.gargoylesoftware.htmlunit.javascript.host.file.FileReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.DefaultUrl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.Keys;
@@ -10,7 +12,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.support.FindBy;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -19,11 +20,12 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-//@DefaultUrl("https://www.cazoo.co.uk/value-my-car/")
+@DefaultUrl("https://www.cazoo.co.uk/value-my-car/")
 public class EnterCarRegPage extends PageObject {
-    static EnterCarRegPage EnterCarRegPage;
+    static CarVerification.EnterCarRegPage EnterCarRegPage;
 
     private WebDriver driver;
+
     @Before
     public void setUp() {
         WebDriverManager.edgedriver().setup();
@@ -31,14 +33,11 @@ public class EnterCarRegPage extends PageObject {
         driver = new EdgeDriver(options);
         regNumbers = new ArrayList<String>();
     }
-//    public static WebDriver driver() {
-//        System.setProperty("webdriver.msedge.driver", System.getProperty("user.dir") + "/drivers/msedgedriver.exe");
-//        return new EdgeDriver();
 
 
-    private static List<String> regNumbers;
-    private String inputFilePath = "C:\\Users\\umapr\\Downloads\\car_input_v2.txt";
-    private static String outputFilePath = "C:\\Users\\umapr\\Downloads\\car_output_v2.txt";
+    public static List<String> regNumbers;
+    public String inputFilePath = "C:\\Users\\umapr\\IdeaProjects\\IdentityE2E_cazoo\\src\\test\\java\\AppTest\\car_input.txt";
+    public String outputFilePath = "C:\\Users\\umapr\\IdeaProjects\\IdentityE2E_cazoo\\src\\test\\java\\AppTest\\car_output.txt";
     @FindBy(xpath = "//input[@id='vrm']")
     static
     WebElementFacade enterReg;
@@ -47,24 +46,23 @@ public class EnterCarRegPage extends PageObject {
     WebElementFacade makenmodel;
 
 
-    public static List<String> extractRegistrationNumbers() throws IOException {
+    public Object extractRegistrationNumbers() throws IOException {
 
-        String fileContent = new String(Files.readAllBytes(Paths.get("C:\\Users\\umapr\\OneDrive\\Desktop\\car_input_v2.txt"))).replaceAll("\\s+", "");
+        String extractCarReg = new String(Files.readAllBytes(Paths.get("C:\\Users\\umapr\\OneDrive\\Documents\\IdentityE2E\\car_output.txt"))).replaceAll("\\s+", "");
         List<String> regNumbers = new ArrayList<>();
         Pattern pattern = Pattern.compile("([A-Za-z]{2}[0-9]{2}[A-Za-z]{3})");
-        Matcher matcher = pattern.matcher(fileContent);
+        Matcher matcher = pattern.matcher(extractCarReg);
 
         while (matcher.find()) {
             regNumbers.add(matcher.group());
         }
         System.out.println(regNumbers);
-        return regNumbers;
+        return null;
     }
-
-    public void extractMessage(List<String> strings)  {
+    public Object extractMessage()  {
 //        regNumbers = new ArrayList<String>();
         try {
-            for (String regNumber : regNumbers) {
+            for (String regNumber : CarVerification.EnterCarRegPage.regNumbers) {
                 driver.navigate().to("https://www.cazoo.co.uk/value-my-car/");
                 enterReg.sendKeys(regNumber);
                 enterReg.sendKeys(Keys.TAB);
@@ -76,14 +74,16 @@ public class EnterCarRegPage extends PageObject {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 
-    public void verifyOutput(String output, String regNumber) throws FileNotFoundException {
+    public void verifyOutput(String output, String regNumber) throws FileNotFoundException
+{
         try {
-            File outputFile = new File(outputFilePath);
-            BufferedReader br = new BufferedReader(new FileReader(outputFile));
-            String expectedOutput = null;
+            String expectedOutput;
             String line;
+            BufferedReader br = new BufferedReader(new FileReader(outputFilePath);
+
             while (true) {
                 try {
                     while (!((line = br.readLine()) != null)) break;

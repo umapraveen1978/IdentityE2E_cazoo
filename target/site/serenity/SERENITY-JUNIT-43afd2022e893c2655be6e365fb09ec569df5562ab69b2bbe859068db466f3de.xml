@@ -1,1 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="AppTest.CarValueTest" skipped="0" tests="1" time="6.9" timestamp="2023-03-15 09:35:33"><testcase classname="AppTest.CarValueTest" name="Carverification test"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="1" failures="0" name="AppTest.CarValueTest" skipped="0" tests="1" time="0.43" timestamp="2023-03-20 06:47:44"><testcase classname="AppTest.CarValueTest" name="Carverification test"><error type="java.lang.NullPointerException"/><system-err>null&#13;
+Steps.CarVerificationSteps.getMessageFromCazoo(CarVerificationSteps.java:17)&#13;
+AppTest.CarValueTest.carverificationTest(CarValueTest.java:25)&#13;
+</system-err></testcase></testsuite>
